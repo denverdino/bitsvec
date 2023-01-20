@@ -1233,8 +1233,8 @@ macro_rules! impl_bitblock {
             const ZERO_ELEMENT: $item_type = <$item_type>::ZERO;
             const ONE_ELEMENT: $item_type = <$item_type>::ONE;
             const MAX_ELEMENT: $item_type = <$item_type>::MAX;
-            const ZERO: Self = <$type>::splat(0);
-            const MAX: Self = <$type>::splat(<$item_type>::MAX);
+            const ZERO: Self = <$type>::from_array([0;$lanes]);
+            const MAX: Self = <$type>::from_array([<$item_type>::MAX;$lanes]);
 
             #[inline]
             fn to_array(self) -> [$item_type; $lanes] {

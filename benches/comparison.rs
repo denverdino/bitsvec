@@ -82,7 +82,7 @@ fn benchmark_bitvector_simd4_u16x8(c: &mut Criterion) {
 fn benchmark_bitvector_bitvec_simd(c: &mut Criterion) {
     let b1 = bitvec_simd::BitVec::ones(100_000);
     let b2 = bitvec_simd::BitVec::zeros(100_000);
-    c.bench_function("bitvec_simd 0.15.0", |b| {
+    c.bench_function("bitvec_simd 0.20.5", |b| {
         b.iter(|| {
             black_box(b1.and_cloned(&b2));
         })
@@ -90,7 +90,7 @@ fn benchmark_bitvector_bitvec_simd(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec_simd2(c: &mut Criterion) {
-    c.bench_function("bitvec_simd 0.15.0 with creation", |b| {
+    c.bench_function("bitvec_simd 0.20.5 with creation", |b| {
         b.iter(|| {
             let b1 = bitvec_simd::BitVec::ones(100_000);
             let b2 = bitvec_simd::BitVec::zeros(100_000);
@@ -100,7 +100,7 @@ fn benchmark_bitvector_bitvec_simd2(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec_simd3(c: &mut Criterion) {
-    c.bench_function("bitvec_simd 0.15.0 resize false", |b| {
+    c.bench_function("bitvec_simd 0.20.5 resize false", |b| {
         b.iter(|| {
             let mut b1 = bitvec_simd::BitVec::ones(100_000);
             black_box(b1.resize(200_000, false));
@@ -109,7 +109,7 @@ fn benchmark_bitvector_bitvec_simd3(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec_simd4(c: &mut Criterion) {
-    c.bench_function("bitvec_simd 0.15.0 resize true", |b| {
+    c.bench_function("bitvec_simd 0.20.5 resize true", |b| {
         b.iter(|| {
             let mut b1 = bitvec_simd::BitVec::ones(100_000);
             black_box(b1.resize(200_000, true));
@@ -122,7 +122,7 @@ fn benchmark_bitvector_bitvec_simd_u16x8(c: &mut Criterion) {
 
     let b1 = bitvec_simd::BitVecSimd::<[u16x8; 4], 8>::ones(100_000);
     let b2 = bitvec_simd::BitVecSimd::<[u16x8; 4], 8>::zeros(100_000);
-    c.bench_function("bitvec_simd 0.15.0 u16x8", |b| {
+    c.bench_function("bitvec_simd 0.20.5 u16x8", |b| {
         b.iter(|| {
             black_box(b1.and_cloned(&b2));
         })
@@ -132,7 +132,7 @@ fn benchmark_bitvector_bitvec_simd_u16x8(c: &mut Criterion) {
 fn benchmark_bitvector_bitvec_simd2_u16x8(c: &mut Criterion) {
     use wide::*;
 
-    c.bench_function("bitvec_simd 0.15.0 u16x8 with creation", |b| {
+    c.bench_function("bitvec_simd 0.20.5 u16x8 with creation", |b| {
         b.iter(|| {
             let b1 = bitvec_simd::BitVecSimd::<[u16x8; 4], 8>::ones(100_000);
             let b2 = bitvec_simd::BitVecSimd::<[u16x8; 4], 8>::zeros(100_000);
@@ -144,7 +144,7 @@ fn benchmark_bitvector_bitvec_simd2_u16x8(c: &mut Criterion) {
 fn benchmark_bitvector_bitvec_simd3_u16x8(c: &mut Criterion) {
     use wide::*;
 
-    c.bench_function("bitvec_simd 0.15.0 u16x8 resize false", |b| {
+    c.bench_function("bitvec_simd 0.20.5 u16x8 resize false", |b| {
         b.iter(|| {
             let mut b1 = bitvec_simd::BitVecSimd::<[u16x8; 4], 8>::ones(100_000);
             black_box(b1.resize(200_000, false));
@@ -155,7 +155,7 @@ fn benchmark_bitvector_bitvec_simd3_u16x8(c: &mut Criterion) {
 fn benchmark_bitvector_bitvec_simd4_u16x8(c: &mut Criterion) {
     use wide::*;
 
-    c.bench_function("bitvec_simd 0.15.0 u16x8 resize true", |b| {
+    c.bench_function("bitvec_simd 0.20.5 u16x8 resize true", |b| {
         b.iter(|| {
             let mut b1 = bitvec_simd::BitVecSimd::<[u16x8; 4], 8>::ones(100_000);
             black_box(b1.resize(200_000, true));
@@ -166,7 +166,7 @@ fn benchmark_bitvector_bitvec_simd4_u16x8(c: &mut Criterion) {
 fn benchmark_bitvector_bitvector_simd(c: &mut Criterion) {
     let b1 = bitvector_simd::BitVector::ones(100_000);
     let b2 = bitvector_simd::BitVector::zeros(100_000);
-    c.bench_function("bitvector_simd 0.2.2", |b| {
+    c.bench_function("bitvector_simd 0.2.3", |b| {
         b.iter(|| {
             black_box(b1.and_cloned(&b2));
         })
@@ -174,7 +174,7 @@ fn benchmark_bitvector_bitvector_simd(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvector_simd2(c: &mut Criterion) {
-    c.bench_function("bitvector_simd 0.2.2 with creation", |b| {
+    c.bench_function("bitvector_simd 0.2.3 with creation", |b| {
         b.iter(|| {
             let b1 = bitvector_simd::BitVector::ones(100_000);
             let b2 = bitvector_simd::BitVector::zeros(100_000);
@@ -186,7 +186,7 @@ fn benchmark_bitvector_bitvector_simd2(c: &mut Criterion) {
 fn benchmark_bitvector_bitvec(c: &mut Criterion) {
     let b1 = bit_vec::BitVec::from_elem(100_000, true);
     let b2 = bit_vec::BitVec::from_elem(100_000, false);
-    c.bench_function("bit-vec 0.6", |b| {
+    c.bench_function("bit-vec 0.6.3", |b| {
         b.iter(|| {
             black_box(b1.clone().and(&b2));
         })
@@ -194,7 +194,7 @@ fn benchmark_bitvector_bitvec(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec2(c: &mut Criterion) {
-    c.bench_function("bit-vec 0.6 with creation", |b| {
+    c.bench_function("bit-vec 0.6.3 with creation", |b| {
         b.iter(|| {
             let mut b1 = bit_vec::BitVec::from_elem(100_000, true);
             let b2 = bit_vec::BitVec::from_elem(100_000, false);
@@ -206,7 +206,7 @@ fn benchmark_bitvector_bitvec2(c: &mut Criterion) {
 fn benchmark_bitvector_bitvec_n(c: &mut Criterion) {
     let b1 = bitvec::bitvec![usize, bitvec::order::Msb0; 1; 100_000];
     let b2 = bitvec::bitvec![usize, bitvec::order::Msb0; 0; 100_000];
-    c.bench_function("bitvec 1.0", |b| {
+    c.bench_function("bitvec 1.0.1", |b| {
         b.iter(|| {
             black_box(b1.clone() & b2.clone());
         })
@@ -214,7 +214,7 @@ fn benchmark_bitvector_bitvec_n(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec_n2(c: &mut Criterion) {
-    c.bench_function("bitvec 1.0 with creation", |b| {
+    c.bench_function("bitvec 1.0.1 with creation", |b| {
         b.iter(|| {
             let b1 = bitvec::bitvec![usize, bitvec::order::Msb0; 1; 100_000];
             let b2 = bitvec::bitvec![usize, bitvec::order::Msb0; 0; 100_000];
@@ -224,7 +224,7 @@ fn benchmark_bitvector_bitvec_n2(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec_n3(c: &mut Criterion) {
-    c.bench_function("bitvec 1.0 resize false", |b| {
+    c.bench_function("bitvec 1.0.1 resize false", |b| {
         b.iter(|| {
             let mut b1 = bitvec::bitvec![usize, bitvec::order::Msb0; 1; 100_000];
             black_box(b1.resize(200_000, false));
@@ -233,7 +233,7 @@ fn benchmark_bitvector_bitvec_n3(c: &mut Criterion) {
 }
 
 fn benchmark_bitvector_bitvec_n4(c: &mut Criterion) {
-    c.bench_function("bitvec 1.0 resize true", |b| {
+    c.bench_function("bitvec 1.0.1 resize true", |b| {
         b.iter(|| {
             let mut b1 = bitvec::bitvec![usize, bitvec::order::Msb0; 1; 100_000];
             black_box(b1.resize(200_000, true));
