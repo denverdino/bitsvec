@@ -173,6 +173,14 @@ bitvec 1.0.1 resize true time:   [100.50 us 100.63 us 100.75 us]
 
 Most code of this crate is from (https://github.com/GCCFeli/bitvec_simd). On top of that, some changes were made.
 
+## Build for WASI
+
+```
+export FLAGS="-C target-feature=+simd128"
+RUSTFLAGS="$FLAGS" cargo build --target wasm32-wasi -r
+wasmtime run target/wasm32-wasi/release/bitsvec.wasm
+```
+
 ## License
 
 This library is licensed under either of:
